@@ -13,3 +13,7 @@ declare module '*.vue' {
   import Vue from 'vue'
   export default Vue
 }
+
+declare type AnyFunction<T> = (...args: any[]) => T
+
+declare type Recordable<T = any> = Record<string, T>

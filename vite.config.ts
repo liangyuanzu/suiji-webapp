@@ -15,6 +15,7 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Inspect from 'vite-plugin-inspect'
 import Prism from 'markdown-it-prism'
 import LinkAttributes from 'markdown-it-link-attributes'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
@@ -24,10 +25,14 @@ export default defineConfig({
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+
   plugins: [
     Vue({
       include: [/\.vue$/, /\.md$/],
     }),
+
+    // https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx
+    vueJsx(),
 
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
