@@ -74,7 +74,9 @@ export default defineConfig({
 
         // auto import ant-design-vue components
         // https://next.antdv.com
-        AntDesignVueResolver(),
+        AntDesignVueResolver({
+          importStyle: 'less',
+        }),
       ],
 
       dts: 'src/components.d.ts',
@@ -150,6 +152,14 @@ export default defineConfig({
       enabled: false,
     }),
   ],
+
+  css: {
+    preprocessorOptions: {
+      less: {
+        javascriptEnabled: true,
+      },
+    },
+  },
 
   server: {
     fs: {
