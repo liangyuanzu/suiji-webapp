@@ -9,6 +9,7 @@ import {
   setObjToUrlParams,
 } from '@suiji/utils'
 import { ContentTypeEnum, RequestEnum, ResultEnum } from '@suiji/tokens'
+import { useI18n } from 'vue-i18n'
 import { context } from '../_bridge'
 import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
 import { Axios } from './Axios'

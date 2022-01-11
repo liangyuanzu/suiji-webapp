@@ -14,7 +14,3 @@ declare module '*.vue' {
   const component: DefineComponent<{}, {}, any>
   export default component
 }
-
-declare type AnyFunction<T> = (...args: any[]) => T
-
-declare type Recordable<T = any> = Record<string, T>
