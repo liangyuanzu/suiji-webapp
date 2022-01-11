@@ -1,0 +1,16 @@
+{
+  "name": "@suiji/service",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@suiji/utils": "workspace:*",
+    "@suiji/tokens": "workspace:*",
+    "@suiji/types": "workspace:*",
+    "axios": "^0.24.0",
+    "qs": "^6.10.2"
+  },
+  "devDependencies": {
+    "@types/qs": "^6.9.7"
+  }
+}

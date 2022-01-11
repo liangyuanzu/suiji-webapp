@@ -46,10 +46,10 @@ jobs:
         run: pnpm run lint
 
       - name: Type Check
-        run: pnpm run typecheck
+        run: pnpm run -C webapp type:check
 
       - name: Unit Test
-        run: pnpm run test:unit
+        run: pnpm run -C webapp test:unit
 
       - name: Cypress PNPM Patch
         run: cp pnpm-lock.yaml package-lock.json

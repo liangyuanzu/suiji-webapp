@@ -1,9 +1,17 @@
+node_modules
 .DS_Store
-.vite-ssg-dist
-.vite-ssg-temp
-*.local
 dist
 dist-ssr
-node_modules
-.idea/
+.cache
+.eslintcache
+*.local
+
+# vite-ssg files
+.vite-ssg-dist
+.vite-ssg-temp
+
+# Log files
 *.log
+
+# Editor directories and files
+.idea/

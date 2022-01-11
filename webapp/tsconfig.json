@@ -1,0 +1,17 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "types": [
+      "cypress",
+      "vite/client",
+      "vite-plugin-pages/client",
+      "vite-plugin-vue-layouts/client"
+    ],
+    "paths": {
+      "@/*": ["src/*"],
+      "@service/*": ["../packages/service/modules/*"]
+    }
+  },
+  "exclude": ["dist", "node_modules", "**/*.js"]
+}

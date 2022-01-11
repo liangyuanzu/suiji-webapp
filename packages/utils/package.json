@@ -1,0 +1,14 @@
+{
+  "name": "@suiji/utils",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "module": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@vue/shared": "^3.2.26",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "@types/lodash-es": "^4.17.5"
+  }
+}
