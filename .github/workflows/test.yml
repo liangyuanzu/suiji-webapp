@@ -61,4 +61,4 @@ jobs:
           build: pnpm run build
           start: npx vite --port 3333
           # Cypress tests and config file are in "webapp" folder
-          working-directory: ./webapp
+          working-directory: webapp
