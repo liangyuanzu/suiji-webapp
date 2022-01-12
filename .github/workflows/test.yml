@@ -57,7 +57,8 @@ jobs:
       - name: Cypress
         uses: cypress-io/github-action@v2
         with:
-          install-command: echo
+          # we have already installed all dependencies above
+          install: false
           build: pnpm run build
           start: npx vite --port 3333
           # Cypress tests and config file are in "webapp" folder
