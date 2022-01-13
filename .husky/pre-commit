@@ -3,3 +3,6 @@
 
 # Format code
 pnpm lint:lint-staged
+
+# Type Check
+pnpm run -C webapp type:check
