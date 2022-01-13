@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { useI18n } from '@suiji/locale'
+
 const { t } = useI18n()
 </script>
 
 <template>
   <div>
-    {{ t('not-found') }}
+    {{ t('common.not_found') }}
   </div>
 </template>
 

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useI18n } from '@suiji/locale'
 import { useUserStore } from '@/stores/user'
 
 const user = useUserStore()
@@ -24,7 +25,7 @@ const { t } = useI18n()
       </a>
     </p>
     <p>
-      <em class="text-sm opacity-75">{{ t('intro.desc') }}</em>
+      <em class="text-sm opacity-75">{{ t('common.intro.desc') }}</em>
     </p>
 
     <div class="py-4" />
@@ -32,8 +33,8 @@ const { t } = useI18n()
     <input
       id="input"
       v-model="name"
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
+      :placeholder="t('common.intro.whats_your_name')"
+      :aria-label="t('common.intro.whats_your_name')"
       type="text"
       autocomplete="false"
       p="x-4 y-2"
@@ -44,7 +45,7 @@ const { t } = useI18n()
       outline="none active:none"
       @keydown.enter="go"
     >
-    <label class="hidden" for="input">{{ t('intro.whats-your-name') }}</label>
+    <label class="hidden" for="input">{{ t('common.intro.whats_your_name') }}</label>
 
     <div>
       <button
@@ -52,7 +53,7 @@ const { t } = useI18n()
         :disabled="!name"
         @click="go"
       >
-        {{ t('button.go') }}
+        {{ t('common.button.go') }}
       </button>
     </div>
   </div>

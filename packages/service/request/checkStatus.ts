@@ -1,5 +1,5 @@
 import type { ErrorMessageMode } from '@suiji/types'
-import { useI18n } from 'vue-i18n'
+import { useI18n } from '@suiji/locale'
 import { context } from '../_bridge'
 
 export function checkStatus(

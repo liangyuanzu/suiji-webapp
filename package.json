@@ -3,10 +3,16 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "bootstrap": "pnpm install",
     "build": "pnpm run -C webapp build",
     "dev": "pnpm run -C webapp dev",
     "lint": "eslint \"**/*.{vue,ts,tsx,js,jsx}\"",
     "lint:lint-staged": "lint-staged",
+    "clean": "npm run clean:dist && npm run clean:lib -r --stream",
+    "clean:all": "npm run clean:dist && npm run clean:lib  && npm run clean -r --stream",
+    "clean:dist": "rimraf dist",
+    "clean:lib": "rimraf node_modules",
+    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf yarn.lock && npm run clean:all && npm run bootstrap",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -14,7 +20,7 @@
     "@commitlint/cli": "^16.0.2",
     "@commitlint/config-conventional": "^16.0.0",
     "@types/node": "^17.0.8",
-    "eslint": "^7.32.0",
+    "eslint": "^8.6.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
     "pnpm": "^6.25.1",

@@ -7,6 +7,7 @@
     "@suiji/utils": "workspace:*",
     "@suiji/tokens": "workspace:*",
     "@suiji/types": "workspace:*",
+    "@suiji/locale": "workspace:*",
     "axios": "^0.24.0",
     "qs": "^6.10.2"
   },

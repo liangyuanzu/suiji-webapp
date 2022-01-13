@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { useI18n } from '@suiji/locale'
+
 const router = useRouter()
 const { t } = useI18n()
 </script>
@@ -16,7 +18,7 @@ const { t } = useI18n()
         class="btn m-3 text-sm mt-8"
         @click="router.back()"
       >
-        {{ t('button.back') }}
+        {{ t('common.button.back') }}
       </button>
     </div>
   </main>

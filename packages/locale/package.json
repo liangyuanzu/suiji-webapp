@@ -1,0 +1,14 @@
+{
+  "name": "@suiji/locale",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@suiji/setting": "workspace:*",
+    "@suiji/tokens": "workspace:*",
+    "@suiji/types": "workspace:*",
+    "@suiji/utils": "workspace:*",
+    "@vueuse/core": "^7.5.3",
+    "vue-i18n": "^9.2.0-beta.26"
+  }
+}
