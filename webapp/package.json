@@ -2,7 +2,7 @@
   "name": "@suiji/webapp",
   "version": "1.0.0",
   "scripts": {
-    "build": "vite-ssg build",
+    "build": "vite build",
     "dev": "vite --port 3333 --open",
     "preview": "vite preview",
     "preview-https": "serve dist",
