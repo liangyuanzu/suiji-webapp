@@ -9,6 +9,6 @@
     "@suiji/types": "workspace:*",
     "@suiji/utils": "workspace:*",
     "@vueuse/core": "^7.5.3",
-    "vue-i18n": "^9.2.0-beta.26"
+    "vue-i18n": "^9.1.9"
   }
 }
