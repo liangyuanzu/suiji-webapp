@@ -3,6 +3,6 @@
   "compilerOptions": {
     "baseUrl": "."
   },
-  "include": ["../packages"],
+  "include": ["../packages", "../webapp/typings"],
   "exclude": ["node_modules", "**/*.js"]
 }

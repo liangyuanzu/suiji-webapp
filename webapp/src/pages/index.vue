@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from '@suiji/locale'
+import { testApi } from '@suiji/apis/test/test'
+import { onMounted } from 'vue'
 import { useUserStore } from '@/stores/user'
 
 const user = useUserStore()
@@ -12,6 +14,10 @@ const go = () => {
 }
 
 const { t } = useI18n()
+
+onMounted(async() => {
+  await testApi()
+})
 </script>
 
 <template>

@@ -10,7 +10,7 @@ import {
 } from '@suiji/utils'
 import { ContentTypeEnum, RequestEnum, ResultEnum } from '@suiji/tokens'
 import { useI18n } from '@suiji/locale'
-import { context } from '../_bridge'
+import { context } from '../bridge'
 import type { AxiosTransform, CreateAxiosOptions } from './axiosTransform'
 import { Axios } from './Axios'
 import { checkStatus } from './checkStatus'
@@ -268,7 +268,7 @@ const createAxios = (opt?: Partial<CreateAxiosOptions>) => {
   )
 }
 
-export const defaultRequest = createAxios()
+export const request = createAxios()
 
 // other api url
 // export const otherHttp = createAxios({

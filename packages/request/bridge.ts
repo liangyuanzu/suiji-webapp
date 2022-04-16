@@ -25,6 +25,6 @@ export let context: ContextOptions = {
   apiUrl: '',
 }
 
-export const initServiceModule = async(_context: ContextOptions) => {
+export const initRequest = async(_context: ContextOptions) => {
   context = _context
 }

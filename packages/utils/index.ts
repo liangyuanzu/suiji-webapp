@@ -1,3 +1,3 @@
 export * from './src'
 
-export { cloneDeep, clone, set } from 'lodash-es'
+export { cloneDeep, clone, set, get } from 'lodash-es'

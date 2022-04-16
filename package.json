@@ -3,16 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "bootstrap": "pnpm install",
-    "build": "pnpm run -C webapp build",
-    "dev": "pnpm run -C webapp dev",
+    "build": "pnpm -C webapp build",
+    "dev": "pnpm -C webapp dev",
     "lint": "eslint \"**/*.{vue,ts,tsx,js,jsx}\"",
     "lint:lint-staged": "lint-staged",
-    "clean": "npm run clean:dist && npm run clean:lib -r --stream",
-    "clean:all": "npm run clean:dist && npm run clean:lib  && npm run clean -r --stream",
+    "clean": "pnpm clean:dist && pnpm clean:lib",
     "clean:dist": "rimraf dist",
     "clean:lib": "rimraf node_modules",
-    "reinstall": "rimraf pnpm-lock.yaml && rimraf package.lock.json && rimraf yarn.lock && npm run clean:all && npm run bootstrap",
+    "reinstall": "rimraf pnpm-lock.yaml && pnpm clean && pnpm i",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -24,8 +22,13 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.1.7",
     "pnpm": "^6.25.1",
+    "rimraf": "^3.0.2",
     "typescript": "^4.5.4",
     "vue-tsc": "^0.30.2"
+  },
+  "resolutions": {
+    "bin-wrapper": "npm:bin-wrapper-china",
+    "gifsicle": "5.2.0"
   },
   "lint-staged": {
     "*.{vue,ts,tsx,js,jsx}": [

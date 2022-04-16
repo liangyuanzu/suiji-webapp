@@ -1,6 +1,6 @@
 import type { ErrorMessageMode } from '@suiji/types'
 import { useI18n } from '@suiji/locale'
-import { context } from '../_bridge'
+import { context } from '../bridge'
 
 export function checkStatus(
   status: number,

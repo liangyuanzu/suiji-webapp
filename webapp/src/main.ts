@@ -14,7 +14,9 @@ import { setupLayouts } from 'virtual:generated-layouts'
 // register vue composition api globally
 import { ViteSSG } from 'vite-ssg'
 import { setupI18n } from '@suiji/locale'
+import { initModules } from './initModules'
 import App from './App.vue'
+import { pinia } from '@/internal'
 
 const routes = setupLayouts(generatedRoutes)
 
@@ -22,10 +24,11 @@ const routes = setupLayouts(generatedRoutes)
 export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
-  async(ctx) => {
-    // install all modules under `modules/`
-    Object.values(import.meta.globEager('./modules/*.ts')).map(i => i.install?.(ctx))
+  async({ app }) => {
+    app.use(pinia)
 
-    await setupI18n(ctx)
+    await initModules()
+
+    await setupI18n(app)
   },
 )

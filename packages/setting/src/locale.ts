@@ -14,3 +14,15 @@ export const localeSetting: LocaleSetting = {
   // available Locales
   availableLocales: [LOCALE.zh, LOCALE.en],
 }
+
+// locale list
+export const localeList: any[] = [
+  {
+    text: '简体中文',
+    event: LOCALE.zh,
+  },
+  {
+    text: 'English',
+    event: LOCALE.en,
+  },
+]

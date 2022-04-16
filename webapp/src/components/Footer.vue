@@ -2,7 +2,7 @@
 import { useI18n, useLocale } from '@suiji/locale'
 import { isDark, toggleDark } from '@/composables'
 
-const { changeLocale, getLocale } = useLocale()
+const { changeLocale } = useLocale()
 
 const toggleLocales = async() => {
   // change to some real logic
