@@ -1,4 +1,4 @@
-import type { VNodeChild, PropType as VuePropType } from 'vue'
+import type { Plugin, VNodeChild, PropType as VuePropType } from 'vue'
 
 declare global {
   type AnyFunction<T> = (...args: any[]) => T
@@ -8,6 +8,8 @@ declare global {
   // vue
   type PropType<T> = VuePropType<T>
   type VueNode = VNodeChild | JSX.Element
+
+  type SFCWithInstall<T> = T & Plugin
 
   interface ViteEnv {
     VITE_GLOB_APP_TITLE: string

@@ -21,3 +21,20 @@ export const setObjToUrlParams = (baseUrl: string, obj: any): string => {
     ? baseUrl + parameters
     : baseUrl.replace(/\/?$/, '?') + parameters
 }
+
+export const generateTimeList = (interval: number): string[] => {
+  const format = (n: number) => {
+    const h = Math.floor(n / 60)
+    const m = n % 60
+    return `${`0${h}`.slice(-2)}:${`0${m}`.slice(-2)}`
+  }
+
+  let i = 0
+  const arr: string[] = []
+  while (i < 24 * 60) {
+    arr.push(format(i))
+    i += interval
+  }
+
+  return arr
+}

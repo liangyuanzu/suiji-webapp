@@ -5,6 +5,7 @@
   "module": "index.ts",
   "license": "MIT",
   "dependencies": {
+    "@suiji/setting": "workspace:*",
     "@vue/shared": "^3.2.26",
     "dayjs": "^1.10.7",
     "lodash-es": "^4.17.21"

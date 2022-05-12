@@ -13,6 +13,8 @@ import { configCompressPlugin } from './compress'
 import { configAutoImportPlugin } from './autoImport'
 import { configAutoImportComponentsPlugin } from './autoImportComponents'
 import { configMarkdownPlugin } from './markdown'
+import { configSvgIconsPlugin } from './svg-icons'
+import { configStyleImportPlugin } from './style-import'
 
 export { configProxy } from './proxy'
 
@@ -38,7 +40,14 @@ export const configVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
 
   // https://github.com/hannoeru/vite-plugin-pages
   vitePlugins.push(Pages({
+    exclude: ['**/components/*.vue'],
     extensions: ['vue', 'md'],
+    extendRoute(route) {
+      if (route.path === '/') {
+        route.redirect = '/tasks'
+        return route
+      }
+    },
   }))
 
   // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -55,6 +64,9 @@ export const configVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
   // https://github.com/antfu/unplugin-vue-components
   vitePlugins.push(configAutoImportComponentsPlugin())
 
+  // https://github.com/vbenjs/vite-plugin-style-import
+  vitePlugins.push(configStyleImportPlugin())
+
   // https://github.com/antfu/vite-plugin-md
   vitePlugins.push(configMarkdownPlugin(markdownWrapperClasses))
 
@@ -65,6 +77,9 @@ export const configVitePlugins = (viteEnv: ViteEnv, isBuild: boolean) => {
 
   // https://github.com/vitejs/vite/tree/main/packages/plugin-legacy
   VITE_LEGACY && isBuild && vitePlugins.push(legacy())
+
+  // vite-plugin-svg-icons
+  vitePlugins.push(configSvgIconsPlugin(isBuild))
 
   // https://github.com/antfu/vite-plugin-inspect
   vitePlugins.push(Inspect({

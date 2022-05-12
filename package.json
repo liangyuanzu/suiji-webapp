@@ -15,16 +15,16 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.14.2",
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
-    "@types/node": "^17.0.8",
-    "eslint": "^8.6.0",
+    "@commitlint/cli": "^16.2.4",
+    "@commitlint/config-conventional": "^16.2.4",
+    "@types/node": "^17.0.30",
+    "eslint": "^8.14.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.1.7",
-    "pnpm": "^6.25.1",
+    "lint-staged": "^12.4.1",
+    "pnpm": "^6.32.11",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.4",
-    "vue-tsc": "^0.30.2"
+    "typescript": "^4.6.4",
+    "vue-tsc": "^0.30.6"
   },
   "resolutions": {
     "bin-wrapper": "npm:bin-wrapper-china",

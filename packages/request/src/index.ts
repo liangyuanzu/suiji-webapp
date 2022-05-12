@@ -40,19 +40,18 @@ const transform: AxiosTransform = {
       return res.data
 
     // Return on error
-    const { data } = res
-    if (!data) {
+    if (!res?.data) {
       // return '[HTTP] Request has no return value';
       throw new Error(t('sys.api.apiRequestFailed'))
     }
 
     // Here code, result, message are unified fields in the background
-    const { code, result, message } = data
+    const { code, data, msg } = res.data
 
     const hasSuccess
-      = data && Reflect.has(data, 'code') && code === ResultEnum.SUCCESS
+      = res.data && Reflect.has(res.data, 'code') && code === ResultEnum.SUCCESS
     if (hasSuccess)
-      return result
+      return data
 
     // Perform different operations on different codes
     // If you don’t want to interrupt the current request, please return the data, otherwise just throw an exception
@@ -63,8 +62,8 @@ const transform: AxiosTransform = {
         context.timeoutFunction?.()
         break
       default:
-        if (message)
-          timeoutMsg = message
+        if (msg)
+          timeoutMsg = msg
     }
 
     // When errorMessageMode=‘modal’, a modal error pop-up window will be displayed instead of a message prompt, which is used for some more important errors
@@ -227,7 +226,7 @@ const createAxios = (opt?: Partial<CreateAxiosOptions>) => {
         // See https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#authentication_schemes
         // authentication schemes，e.g: Bearer
         // authenticationScheme: 'Bearer',
-        authenticationScheme: '',
+        authenticationScheme: 'Bearer',
         timeout: 10 * 1000,
         // Base interface address
         // baseURL: globSetting.apiUrl,
@@ -262,6 +261,8 @@ const createAxios = (opt?: Partial<CreateAxiosOptions>) => {
           // Whether to carry token
           withToken: true,
         },
+        // cookie
+        withCredentials: true,
       },
       opt || {},
     ),

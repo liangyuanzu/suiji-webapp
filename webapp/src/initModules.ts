@@ -1,19 +1,31 @@
 import { initRequest } from '@suiji/request'
+import { useI18n } from '@suiji/locale'
 import { getGlobalConfig } from '@/internal'
+import { useMessage } from '@/hooks/web/useMessage'
 
 const initService = async() => {
   const { apiUrl, urlPrefix, uploadUrl } = getGlobalConfig()
+  const { createMessage, createErrorModal } = useMessage()
+  const { t } = useI18n()
 
   await initRequest({
     apiUrl,
     urlPrefix,
     uploadUrl,
-    getTokenFunction: () => {},
+    getTokenFunction: () => {
+      return localStorage.getItem('token')
+    },
     unauthorizedFunction: () => {},
-    errorFunction: () => {},
-    errorModalFunction: () => {},
+    errorFunction: createMessage.error,
+    errorModalFunction: createErrorModal,
     errorLogFunction: () => {},
-    handleErrorFunction: () => {},
+    handleErrorFunction: (message, mode) => {
+      if (mode === 'modal')
+        createErrorModal({ title: t('sys.api.errorTip'), content: message })
+
+      else if (mode === 'message')
+        createMessage.error(message)
+    },
     timeoutFunction: () => {},
   })
 }

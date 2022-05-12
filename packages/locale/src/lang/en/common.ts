@@ -1,4 +1,5 @@
 export default {
+  okText: 'OK',
   button: {
     about: 'About',
     back: 'Back',

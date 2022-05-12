@@ -1,3 +1,8 @@
+import 'normalize.css'
+import 'virtual:svg-icons-register'
+// vue-virtual-scroller
+import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
+import VueVirtualScroller from 'vue-virtual-scroller'
 // windicss layers
 import 'virtual:windi-base.css'
 import 'virtual:windi-components.css'
@@ -12,23 +17,45 @@ import generatedRoutes from 'virtual:generated-pages'
 import { setupLayouts } from 'virtual:generated-layouts'
 
 // register vue composition api globally
-import { ViteSSG } from 'vite-ssg'
 import { setupI18n } from '@suiji/locale'
+import { createRouter, createWebHistory } from 'vue-router'
+import { createApp } from 'vue'
 import { initModules } from './initModules'
 import App from './App.vue'
 import { pinia } from '@/internal'
 
 const routes = setupLayouts(generatedRoutes)
 
-// https://github.com/antfu/vite-ssg
-export const createApp = ViteSSG(
-  App,
-  { routes, base: import.meta.env.BASE_URL },
-  async({ app }) => {
-    app.use(pinia)
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+})
 
-    await initModules()
+router.beforeEach((to, _from, next) => {
+  if (to.path === '/signup' || to.path === '/signin' || to.path.startsWith('/sign'))
+    return next()
 
-    await setupI18n(app)
-  },
-)
+  const token = localStorage.getItem('token')
+  if (!token)
+    return next('/signin')
+  else
+    next()
+})
+
+const bootstrap = async() => {
+  const app = createApp(App)
+
+  app.use(VueVirtualScroller)
+
+  app.use(pinia)
+
+  await initModules()
+
+  await setupI18n(app)
+
+  app.use(router)
+
+  app.mount('#app')
+}
+
+bootstrap()

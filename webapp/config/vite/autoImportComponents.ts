@@ -26,6 +26,7 @@ export const configAutoImportComponentsPlugin = () => {
       // auto import ant-design-vue components
       // https://next.antdv.com
       AntDesignVueResolver({
+        resolveIcons: true,
         importStyle: 'less',
       }),
     ],

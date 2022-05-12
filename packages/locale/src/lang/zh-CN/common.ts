@@ -1,4 +1,5 @@
 export default {
+  okText: '确认',
   button: {
     about: '关于',
     back: '返回',
